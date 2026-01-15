@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CarRental.Domain.ValueObjects;
+using CarRental.Domain.Entities;
 using CarRental.Domain.Enums;
+using FluentAssertions;
 
 namespace CarRental.Tests.Entities
 {
@@ -19,7 +21,7 @@ namespace CarRental.Tests.Entities
             var carClass = CarClass.Standard;
 
             // Act
-            var car = new CarClass(id, model, carClass);
+            var car = new Car(id, model, carClass);
 
             // Assert
 
