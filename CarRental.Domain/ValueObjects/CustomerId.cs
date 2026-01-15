@@ -16,15 +16,21 @@ namespace CarRental.Domain.ValueObjects
             get { return this._customerId; }
         }
 
-        private CustomerId(Guid vehicleId)
+        private CustomerId(Guid customerId)
         {
-            this._customerId = vehicleId;
+            this._customerId = customerId;
         }
 
         public static CustomerId Create(Guid customerId)
         {
             if (customerId == Guid.Empty) throw new ValidationException("Guid can not be empty !");
 
+            return new CustomerId(customerId);
+        }
+
+        public static CustomerId New()
+        {
+            Guid customerId = Guid.NewGuid();
             return new CustomerId(customerId);
         }
     }

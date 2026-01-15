@@ -10,7 +10,7 @@ using FluentAssertions;
 
 namespace CarRental.Tests.Entities
 {
-    public class CarTests
+    public class VehicleTests
     {
         [Fact]
         public void Create_ShouldInitializeCar_WithCorrectValues_AndAvailableStatus()
@@ -21,7 +21,7 @@ namespace CarRental.Tests.Entities
             var carClass = CarClass.Standard;
 
             // Act
-            var car = new Car(id, model, carClass);
+            var car = new Vehicle(id, model, carClass);
 
             // Assert
 

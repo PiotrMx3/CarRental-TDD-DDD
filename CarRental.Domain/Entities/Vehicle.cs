@@ -8,18 +8,25 @@ using CarRental.Domain.ValueObjects;
 
 namespace CarRental.Domain.Entities
 {
-	public class Car
+	public class Vehicle
 	{
 		private VehicleId _id;
 		private string _model;
 		private CarClass _carClass;
 		private CarStatus _status = CarStatus.Available;
+		private bool _isMaintenance;
 
-		public Car(VehicleId id, string model, CarClass carClass)
+
+		public Vehicle(VehicleId id, string model, CarClass carClass)
 		{
-			_id = id;
-			_model = model;
-			_carClass = carClass;
+			this._id = id;
+			this._model = model;
+			this._carClass = carClass;
+		}
+		public bool IsMaintenance
+		{
+			get { return this._isMaintenance; }
+			private set { _isMaintenance = value; }
 		}
 
 		public CarStatus Status
@@ -46,6 +53,17 @@ namespace CarRental.Domain.Entities
 			get { return this._id; }
 		}
 
+
+		// Methoden 
+
+		public void FinishMAintenance()
+		{
+			IsMaintenance = false;
+		}
+		public void SetMaintenance()
+		{
+			IsMaintenance = true;
+		}
 
 	}
 }
