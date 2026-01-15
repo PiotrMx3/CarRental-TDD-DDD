@@ -29,8 +29,6 @@ namespace CarRental.Tests.Entities
             customer.Name.Should().Be(name);
             customer.DriverLicense.Should().Be(license);
 
-
-
         }
     }
 }

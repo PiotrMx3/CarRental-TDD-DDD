@@ -13,7 +13,7 @@ namespace CarRental.Tests.ValueObjects
     public class DateRangeTests
     {
         [Fact]
-        public void Create_ShouldThrowException_WhenTartIsAfterEnd()
+        public void Create_ShouldThrowException_WhenStartIsAfterEnd()
         {
             // Arrange
             var start = DateTime.Now;

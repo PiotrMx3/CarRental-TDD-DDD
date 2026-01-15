@@ -37,13 +37,12 @@ namespace CarRental.Domain.ValueObjects
 
 		public bool Overlaps(DateRange other)
 		{
-
 			return this.Start < other.End && other.Start < this.End;
 		}
 
-		public int Days()
+		public int Days
 		{
-			return (End - Start).Days == 0 ? 1 : (int)Math.Ceiling((End - Start).TotalDays);
+			get { return (End - Start).Days == 0 ? 1 : (int)Math.Ceiling((End - Start).TotalDays); }
 		}
 
 	}

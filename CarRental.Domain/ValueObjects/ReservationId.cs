@@ -28,5 +28,12 @@ namespace CarRental.Domain.ValueObjects
 			return new ReservationId(reservationId);
 		}
 
+		public static ReservationId New()
+		{
+			Guid reservationId = Guid.NewGuid();
+			return new ReservationId(reservationId);
+
+        }
+
 	}
 }

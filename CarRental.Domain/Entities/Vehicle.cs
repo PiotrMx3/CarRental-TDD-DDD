@@ -59,10 +59,13 @@ namespace CarRental.Domain.Entities
 		public void FinishMAintenance()
 		{
 			IsMaintenance = false;
+			Status = CarStatus.Available;
 		}
 		public void SetMaintenance()
 		{
 			IsMaintenance = true;
+			
+			Status = CarStatus.Maintenance;
 		}
 
 	}
