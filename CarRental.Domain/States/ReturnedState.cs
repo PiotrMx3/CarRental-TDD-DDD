@@ -1,4 +1,5 @@
-﻿using CarRental.Domain.Entities;
+﻿using CarRental.Domain.Abstractions;
+using CarRental.Domain.Entities;
 using CarRental.Domain.Enums;
 using CarRental.Domain.Exceptions;
 using System;

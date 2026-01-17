@@ -1,4 +1,5 @@
-﻿using CarRental.Domain.Enums;
+﻿using CarRental.Domain.Abstractions;
+using CarRental.Domain.Enums;
 using CarRental.Domain.States;
 using CarRental.Domain.ValueObjects;
 using System;
@@ -84,9 +85,7 @@ namespace CarRental.Domain.Entities
             get { return Status == RentalStatus.Returned; }
         }
 
-
         // Method's
-
 
         public void Return(DateTime returnDate)
         {

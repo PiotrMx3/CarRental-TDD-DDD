@@ -10,6 +10,6 @@ namespace CarRental.Domain.Policies
 {
     public interface IPricingStrategy
     {
-        Money CalculateBasePrice(CarClass carClass, int days);
+        Money CalculateBasePrice(VehicleClass carClass, int days);
     }
 }

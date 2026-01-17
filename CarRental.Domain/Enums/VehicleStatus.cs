@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Domain.Enums
 {
-    public enum CarStatus
+    public enum VehicleStatus
     {
         Available,
         Rented,

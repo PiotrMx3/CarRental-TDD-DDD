@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Domain.Enums
 {
-    public enum CarClass
+    public enum VehicleClass
     {
         Basic,
         Standard,
