@@ -1,5 +1,6 @@
-﻿using CarRental.Domain.ValueObjects;
-using CarRental.Domain.Enums;
+﻿using CarRental.Domain.Enums;
+using CarRental.Domain.States;
+using CarRental.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,10 @@ namespace CarRental.Domain.Entities
         private CustomerId _customerId;
         private DateRange _dateRange;
         private Money _priceToPay;
-        private RentalStatus _status;
+        private IRentalState _state;
+        private DateTime? _returnedAt;
+
+
 
         private Rental(RentalId rentalId, ReservationId reservationId, VehicleId vehicleId, CustomerId customerId, DateRange dateRange, Money price)
         {
@@ -27,7 +31,7 @@ namespace CarRental.Domain.Entities
             _customerId = customerId;
             _dateRange = dateRange;
             _priceToPay = price;
-            _status = RentalStatus.Ongoing;
+            _state = new OngoingState();
         }
 
 
@@ -36,10 +40,13 @@ namespace CarRental.Domain.Entities
             return new Rental(rentalId, reservationId, vehicleId, customerId, dataRange, price);
         }
 
+        public DateTime? ReturnedAt
+        {
+            get { return _returnedAt; }
+        }
         public RentalStatus Status
         {
-            get { return _status; }
-            private set { _status = value; }
+            get { return _state.StatusName; }
         }
 
         public Money PriceToPay
@@ -72,13 +79,29 @@ namespace CarRental.Domain.Entities
         {
             get { return this._rentalId; }
         }
+        public bool IsReturned
+        {
+            get { return Status == RentalStatus.Returned; }
+        }
 
 
         // Method's
 
-        public bool IsReturned()
+
+        public void Return(DateTime returnDate)
         {
-            return Status == RentalStatus.Returned;
+            _state.Return(this, returnDate);
+        }
+
+
+        internal void ChangeState(IRentalState newState)
+        {
+            _state = newState;
+        }
+
+        internal void SetReturnDate(DateTime returnDate)
+        {
+            _returnedAt = returnDate;
         }
 
     }

@@ -13,7 +13,7 @@ namespace CarRental.Tests.ValueObjects
     public class VehicleIdTests
     {
         [Fact]
-        public void Create_WithValidGuid_ShouldRetournVechicleId()
+        public void Create_WithValidGuid_ShouldReturnVechicleId()
         {
             // Arrange
             var guid = Guid.NewGuid();

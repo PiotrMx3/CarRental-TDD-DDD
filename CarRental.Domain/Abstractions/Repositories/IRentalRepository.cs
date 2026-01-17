@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.Domain.Abstractions.Repositories
 {
-    internal interface IRentalRepository
+    public interface IRentalRepository
     {
         Rental? GetById(RentalId id);
         void Add(Rental rental);
