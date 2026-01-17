@@ -12,12 +12,12 @@ namespace CarRental.Domain.Entities
 	{
 		private VehicleId _id;
 		private string _model;
-		private CarClass _carClass;
-		private CarStatus _status = CarStatus.Available;
+		private VehicleClass _carClass;
+		private VehicleStatus _status = VehicleStatus.Available;
 		private bool _isMaintenance;
 
 
-		public Vehicle(VehicleId id, string model, CarClass carClass)
+		public Vehicle(VehicleId id, string model, VehicleClass carClass)
 		{
 			this._id = id;
 			this._model = model;
@@ -29,14 +29,14 @@ namespace CarRental.Domain.Entities
 			private set { _isMaintenance = value; }
 		}
 
-		public CarStatus Status
+		public VehicleStatus Status
 		{
 			get { return this._status; }
 			private set { this._status = value; }
 		}
 
 
-		public CarClass CarClass	
+		public VehicleClass CarClass	
 		{
 			get { return this._carClass; }
 		}
@@ -59,13 +59,13 @@ namespace CarRental.Domain.Entities
 		public void FinishMaintenance()
 		{
 			IsMaintenance = false;
-			Status = CarStatus.Available;
+			Status = VehicleStatus.Available;
 		}
 		public void SetMaintenance()
 		{
 			IsMaintenance = true;
 			
-			Status = CarStatus.Maintenance;
+			Status = VehicleStatus.Maintenance;
 		}
 
 	}

@@ -18,7 +18,7 @@ namespace CarRental.Tests.Entities
             // Arrange 
             var id = VehicleId.New();
             var model = "Toyota Corolla";
-            var carClass = CarClass.Standard;
+            var carClass = VehicleClass.Standard;
 
             // Act
             var car = new Vehicle(id, model, carClass);
@@ -29,7 +29,7 @@ namespace CarRental.Tests.Entities
             car.Model.Should().Be(model);
             car.CarClass.Should().Be(carClass);
 
-            car.Status.Should().Be(CarStatus.Available);
+            car.Status.Should().Be(VehicleStatus.Available);
             
         }
     }

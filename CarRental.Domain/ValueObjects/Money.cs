@@ -34,4 +34,8 @@ public record Money
     {
         return Money.Of(a.Amount + b.Amount);
     }
+    public static Money operator -(Money a, Money b)
+    {
+        return Money.Of(a.Amount - b.Amount);
+    }
 }
