@@ -28,5 +28,12 @@ namespace CarRental.Domain.ValueObjects
 			return new RentalId(rentalId);
         }
 
+		public static RentalId New()
+		{
+			Guid id = Guid.NewGuid();
+
+			return new RentalId(id);
+		}
+
 	}
 }
