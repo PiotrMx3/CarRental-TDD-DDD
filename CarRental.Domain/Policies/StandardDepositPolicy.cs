@@ -3,37 +3,34 @@ using CarRental.Domain.Exceptions;
 using CarRental.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
-using System.Formats.Asn1;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CarRental.Domain.Policies
 {
-    public class StandardPricingStrategy : IPricingStrategy
+    public class StandardDepositPolicy : IDepositPolicy
     {
-        public Money CalculateBasePrice(VehicleClass vehicleClass, int days)
+        public Money CalculateDeposit(VehicleClass vehicleClass)
         {
-            if (days < 0) throw new ValidationException("Rental days must be greater than 0");
-
-            decimal dailyRate = 0m;
+            decimal deposit = 0m;
 
             switch (vehicleClass)
             {
                 case VehicleClass.Basic:
-                    dailyRate = 100m;
+                    deposit = 500m;
                     break;
                 case VehicleClass.Standard:
-                    dailyRate = 200m;
+                    deposit = 1000m;
                     break;
                 case VehicleClass.Premium:
-                    dailyRate = 300m;
+                    deposit = 1500m;
                     break;
                 default:
-                    throw new DomainException($"No pricing strategy for {vehicleClass}");
+                    throw new DomainException($"Unknown vehicle class: {vehicleClass}");
             }
 
-            return Money.Of(dailyRate * days);
+            return Money.Of(deposit);
         }
     }
 }

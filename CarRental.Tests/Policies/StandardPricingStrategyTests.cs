@@ -16,7 +16,7 @@ namespace CarRental.Tests.Policies
         [InlineData(VehicleClass.Basic, 1, 100)]    // Basic = 100m per day
         [InlineData(VehicleClass.Standard, 2, 400)] // Standard = 200m per day
         [InlineData(VehicleClass.Premium, 3, 900)]  // Premium = 300m per day
-        public void CalculateBasePrice_ShouldReturnCorrectAmount_ForCarClass(VehicleClass vehicleClass, int days, decimal expexted)
+        public void CalculateBasePrice_ShouldReturnCorrectAmount_ForCarClass(VehicleClass vehicleClass, int days, decimal expected)
         {
             // Arrange 
             var sut = new StandardPricingStrategy();
@@ -26,7 +26,7 @@ namespace CarRental.Tests.Policies
 
             // Assert
 
-            result.Amount.Should().Be(expexted);
+            result.Amount.Should().Be(expected);
 
  
         }
