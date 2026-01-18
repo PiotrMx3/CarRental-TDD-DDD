@@ -22,35 +22,36 @@ namespace CarRental.Domain.ValueObjects
             this._penalty = Money.Of(0);
         }
 
+        public Money BasePrice
+        {
+            get { return _basePrice; }
+            init { _basePrice = value; }
+        }
+
+        public Money Discount
+        {
+            get { return _discount; }
+            init { _discount = value; }
+        }
+
+        public Money Deposit
+        {
+            get { return _deposit; }
+            init { _deposit = value; }
+        }
+
+        public Money Penalty
+        {
+            get { return _penalty; }
+            init { _penalty = value; }
+        }
+
         public Money FinalAmount
         {
             get
             {
                 return (BasePrice - Discount) + Penalty;
             }
-        }
-
-        public Money Penalty
-        {
-            get { return this._penalty; }
-        }
-
-
-        public Money Deposit
-        {
-            get { return this._deposit; }
-        }
-
-
-        public Money Discount
-        {
-            get { return this._discount; }
-        }
-
-
-        public Money BasePrice
-        {
-            get { return this._basePrice; }
         }
 
 
