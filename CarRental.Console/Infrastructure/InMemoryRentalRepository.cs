@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.App.Infrastructure
 {
-    internal class InMemoryRentalRepository : IRentalRepository
+    public class InMemoryRentalRepository : IRentalRepository
     {
 
         private readonly List<Rental> _rentals = new();

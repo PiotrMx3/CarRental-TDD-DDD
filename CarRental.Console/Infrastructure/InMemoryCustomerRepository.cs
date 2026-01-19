@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CarRental.App.Infrastructure
 {
-    internal class InMemoryCustomerRepository : ICustomerRepository
+    public class InMemoryCustomerRepository : ICustomerRepository
     {
 
         private readonly List<Customer> _customers = new();
